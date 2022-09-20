@@ -11,7 +11,19 @@ const html =
 
 
 console.log(
-  `${html} > ${body} > ${main} > ${section} > ${blockquote} > ${footer} > ${cite}`
+  (`${html} > ${body} > ${main} > ${section} > ${blockquote} > ${footer} > ${cite}`).toLowerCase()
 );
 
+//or 
 
+const arr = [];
+let currentElement = document.querySelector("cite");
+
+while(currentElement) {
+  let currentElementName = currentElement.nodeName;
+  arr.unshift(currentElementName.toLowerCase());
+
+  currentElement = currentElement.parentElement;
+}
+
+console.log(arr.join(" > "))
